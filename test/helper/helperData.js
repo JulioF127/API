@@ -46,3 +46,4 @@ const testAuthLogin = {
     testAuthRegisterAdmin,
     testStorageRegister,
     testDataTrack
+  }

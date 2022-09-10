@@ -22,7 +22,7 @@ const Tracks = sequelize.define(
             type: DataTypes.STRING,
         },
         artist_nationality: {
-            type:DataTypes.STRING,
+            type: DataTypes.STRING,
         },
         duration_start:{
             type: DataTypes.INTEGER,
@@ -35,14 +35,14 @@ const Tracks = sequelize.define(
         }
     },
     {
-       timestamps:true, 
+       timestamps: true, 
     }
 );
 
-/**Implementando un modelo personalizado  */
 
-Tracks.findAllData = function(){
-    Tracks.belongsTo(Storage,{
+
+Tracks.findAllData = function (){
+    Tracks.belongsTo(Storage, {
         foreignKey: 'mediaId',
         as:'audio'
     })

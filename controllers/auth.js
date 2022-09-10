@@ -5,7 +5,7 @@ const { usersModel } = require("../models")
 const { handleHttpError } = require("../utils/handleError");
 
 
-/** este controlador es el encargado de registrar un usuario*/
+
 const registerCtrl = async (req, res) => {
   try{
     req = matchedData(req);
@@ -18,13 +18,14 @@ const registerCtrl = async (req, res) => {
         token: await tokenSign(dataUser),
         user: dataUser
     };
+    res.status(201)
     res.send({ data })
   }catch(e){
     handleHttpError(res, "ERROR_REGISTER_USER")
   }
 };
 
-/**este controlador es el encargado de logear a una persona  */
+
 const loginCtrl = async (req, res) =>{
     try{
         req = matchedData(req);

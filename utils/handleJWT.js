@@ -37,7 +37,7 @@ const tokenSign = async (user) => {
 
 };
 
-/**debes de pasar el token de sesion el JWT */
+
 
 const verifyToken = async (tokenJwt) => {
 
