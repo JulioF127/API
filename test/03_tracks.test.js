@@ -25,7 +25,7 @@ test("Deberia registrar un item", async () => {
     .set("Authorization", `Bearer ${JWT_TOKEN}`)
     .send(dataTracksNew);
   const { body } = res;
-  expect(res.statusCode).toEqual(201);
+  expect(res.statusCode).toEqual(200);
   expect(body).toHaveProperty("data");
   expect(body).toHaveProperty("data.name");
   expect(body).toHaveProperty("data.artist");
