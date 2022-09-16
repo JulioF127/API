@@ -15,7 +15,7 @@ beforeAll(async () => {
   JWT_TOKEN = await tokenSign(user);
 });
 
-test("Deberia registrar un item", async () => {
+test("deberia registra un item", async () => {
   const dataTracksNew = { 
     ...testDataTrack, 
     mediaId: STORAGE_ID };
@@ -25,7 +25,7 @@ test("Deberia registrar un item", async () => {
     .set("Authorization", `Bearer ${JWT_TOKEN}`)
     .send(dataTracksNew);
   const { body } = res;
-  expect(res.statusCode).toEqual(200);
+  expect(res.statusCode).toEqual(201);
   expect(body).toHaveProperty("data");
   expect(body).toHaveProperty("data.name");
   expect(body).toHaveProperty("data.artist");
@@ -43,7 +43,7 @@ test("should create a return all", async () => {
   expect(body).toHaveProperty("data");
 });
 
-test("Debe retornar todo el detalle del item", async () => {
+test("debe retornar todo el detalle del item", async () => {
   const { _id } = await tracksModel.findOne({});
   id = _id.toString();
   const res = await request(app)
@@ -54,7 +54,7 @@ test("Debe retornar todo el detalle del item", async () => {
   expect(body).toHaveProperty("data");
 });
 
-test("Debe eliminar el item", async () => {
+test("debe eliminar el item", async () => {
   const { _id } = await tracksModel.findOne({});
   id = _id.toString();
   const res = await request(app)
