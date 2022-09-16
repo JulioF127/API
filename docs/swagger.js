@@ -1,7 +1,7 @@
 const swaggerJsdoc = require("swagger-jsdoc");
 
 
-/** API config info*/
+
 
 const swaggerDefinition = {
     openapi: "3.0.0",
@@ -12,6 +12,11 @@ const swaggerDefinition = {
     servers: [
         {
             url: "http://localhost:3001/api"
+
+        },
+        {
+            url: "https://calm-thicket-24388.herokuapp.com/"
+            
         },
     ],
     components: {
