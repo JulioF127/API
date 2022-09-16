@@ -7,25 +7,24 @@ const { testAuthRegister } = require("./helper/helperData")
 let JWT_TOKEN = "";
 const filePath = `${__dirname}/dump/track.mp3`;
 
-/**
- * necesitamos obtener el JWT de session antes que todo!
- */
 beforeAll(async () => {
-    const user = usersModel.findOne({email: "test@test.com"});
-    JWT_TOKEN = await tokenSign(user);
+  await usersModel.deleteMany({});
+  await storageModel.deleteMany({});
+  const user = usersModel.create(testAuthRegister);
+  JWT_TOKEN = await tokenSign(user);
   });
 
   /**
    * [POST STORAGE] Test for upload file
    */
   describe("[STORAGE] Upload file", ()=>{
-    test("should uplaod file", async () => {
+    test("should upload file", async () => {
         const res = await request(app)
           .post("/api/storage")
           .set("Authorization", `Bearer ${JWT_TOKEN}`)
           .attach("myfile", filePath);
         const { body } = res;
-        expect(res.statusCode).toEqual(200);
+        expect(res.statusCode).toEqual(201);
         expect(body).toHaveProperty("data");
         expect(body).toHaveProperty("data.url");
       });
@@ -64,4 +63,20 @@ describe ("[STORAGE] Return one item", () =>{
         expect(res.statusCode).toEqual(200);
         expect(body).toHaveProperty("data");
       });
-})
+    })
+
+
+describe ("[STORAGE] Delete one item", () =>{
+  test("debe eliminar el item", async () => {
+    const { _id } = await storageModel.findOne();
+    id = _id.toString();
+  
+    const res = await request(app)
+      .delete(`/api/storage/${id}`)
+      .set("Authorization", `Bearer ${JWT_TOKEN}`);
+    const { body } = res;
+    expect(res.statusCode).toEqual(200);
+    expect(body).toHaveProperty("data");
+    expect(body).toHaveProperty("data.deleted", 1);
+  })
+});
