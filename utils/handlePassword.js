@@ -1,14 +1,14 @@
-const bcryptjs =  require("bcryptjs")
+const bcryptjs = require("bcryptjs")
 
-/**Contraseña sin encriptar: pass.123 */
-const encrypt = async (passswordPlain)=>{
+
+const encrypt = async (passswordPlain) => {
     const hash = await bcryptjs.hash(passswordPlain, 10);
     return hash
 };
 
-/**pasar contraseña sin encriptar y encriptada*/
-const compare = async(passswordPlain,hashPassword)=>{
-    return await bcryptjs.compare(passswordPlain,hashPassword)
+
+const compare = async (passswordPlain, hashPassword) => {
+    return await bcryptjs.compare(passswordPlain, hashPassword)
 };
 
-module.exports = {encrypt, compare};
+module.exports = { encrypt, compare };

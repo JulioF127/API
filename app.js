@@ -2,7 +2,7 @@ require("dotenv").config()
 const express = require ("express")
 const cors = require ("cors")
 const swaggerUI = require("swagger-ui-express")
-const dbConnectNoSql = require('./config/mongo')
+const dbConnectNoSql = require('./config/mongo.js')
 const {dbConnectMySql} = require("./config/mysql")
 const app = express()
 const port = process.env.PORT||3000
@@ -17,9 +17,7 @@ app.use(express.static("storage"))
 
 app.use(`/documentation`, swaggerUI.serve, swaggerUI.setup(openApiConfiguration))
 
-/**
- * aqui invocamos a las rutas
- */
+
 app.use("/api", require("./routes"))
 
 if(NODE_ENV !== 'test'){
