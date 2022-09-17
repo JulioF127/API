@@ -15,7 +15,7 @@ const swaggerDefinition = {
 
         },
         {
-            url: "https://calm-thicket-24388.herokuapp.com/"
+            url: "https://susherokuapi.herokuapp.com/"
             
         },
     ],
