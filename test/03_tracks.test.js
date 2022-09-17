@@ -1,6 +1,6 @@
 const request = require("supertest");
 const app = require("../app");
-const { tokenSign } = require("../utils/handleJwt");
+const { tokenSign } = require("../utils/handleJWT");
 const { usersModel, storageModel, tracksModel } = require("../models");
 const {testAuthRegisterAdmin,testDataTrack,testStorageRegister} = require("./helper/helperData");
 let STORAGE_ID = "";
@@ -15,7 +15,7 @@ beforeAll(async () => {
   JWT_TOKEN = await tokenSign(user);
 });
 
-test("deberia registra un item", async () => {
+test("Registra un Item", async () => {
   const dataTracksNew = { 
     ...testDataTrack, 
     mediaId: STORAGE_ID };
@@ -32,7 +32,7 @@ test("deberia registra un item", async () => {
   expect(body).toHaveProperty("data.cover");
 });
 
-test("should create a return all", async () => {
+test("Should create a return all", async () => {
   const res = await request(app)
     .get("/api/tracks")
     .set("Authorization", `Bearer ${JWT_TOKEN}`);
@@ -43,7 +43,7 @@ test("should create a return all", async () => {
   expect(body).toHaveProperty("data");
 });
 
-test("debe retornar todo el detalle del item", async () => {
+test("Detalle del Item", async () => {
   const { _id } = await tracksModel.findOne({});
   id = _id.toString();
   const res = await request(app)
@@ -54,7 +54,7 @@ test("debe retornar todo el detalle del item", async () => {
   expect(body).toHaveProperty("data");
 });
 
-test("debe eliminar el item", async () => {
+test("Eliminar Item", async () => {
   const { _id } = await tracksModel.findOne({});
   id = _id.toString();
   const res = await request(app)

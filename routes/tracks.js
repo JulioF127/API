@@ -108,9 +108,9 @@ router.post("/", authMiddleware, checkRol(["user", "admin"]), validatorCreateIte
  *                    type: string
  *          responses:
  *              '200': 
- *                  description: track actualizada
+ *                  description: Track actualizada
  *              '422': 
- *                  description: erro de validacion
+ *                  description: Error de validacion
  *          requestBody:
  *              content:
  *                  application/json:
@@ -128,7 +128,7 @@ router.put("/:id", authMiddleware, validatorGetItem, validatorCreateItem, update
 *          tags:
 *              - tracks
 *          summary: "delete track"
-*          description: "eliminar track"
+*          description: "Eliminar track"
 *          security:
 *              - bearerAuth: []
 *          parameters:
@@ -142,7 +142,7 @@ router.put("/:id", authMiddleware, validatorGetItem, validatorCreateItem, update
 *              '200':
 *                  description: Track eliminada
 *              '422':
-*                  description: error de validacion
+*                  description: Error de validacion
 */
 router.delete("/:id", authMiddleware, validatorGetItem, deleteItem);
 

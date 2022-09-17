@@ -4,7 +4,7 @@ const {matchedData} = require("express-validator")
 
 
 /**
- * Obtener lista de la base de datos
+ * Listar
  */
 
 const getItems = async (req, res) => {
@@ -20,7 +20,7 @@ const getItems = async (req, res) => {
 };
 
 /**
- * obtener un detalle 
+ * Obtener detalle
  */
 
 const getItem = async (req, res) => {
@@ -34,7 +34,7 @@ const getItem = async (req, res) => {
     };
 };
 /**
- * insertar un registro
+ * Insertar Registro
  */
 const createItem = async (req, res) => {
     try{
@@ -49,7 +49,7 @@ const createItem = async (req, res) => {
 
 
 /**
- * actualizar un registro
+ * Actualizar
  */
 const updateItem = async (req, res) => {
     try{
@@ -65,7 +65,7 @@ const updateItem = async (req, res) => {
 
 
 /**
- * eliminar un registro
+ * Eliminar
  */
 const deleteItem = async (req, res) => {
     try{

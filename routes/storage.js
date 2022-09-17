@@ -17,7 +17,7 @@ const {validatorGetItem} = require("../validators/storage");
  *              - bearerAuth: []
  *          responses:
  *              '200':
- *                  description: retorna la lista de los archivos
+ *                  description: Retorna la lista de los archivos
  *                  content:
  *                      aplication/json:
  *                          schema:
@@ -48,7 +48,7 @@ router.get("/",getItems);
  *                  type: string
  *          responses:
  *              '200':
- *                  description: retorna el objeto de la storage
+ *                  description: Retorna el objeto de la storage
  *                  content:
  *                      aplication/json:
  *                          schema:
@@ -71,7 +71,7 @@ router.get("/",getItems);
   *              - bearerAuth: []
   *          responses:
   *              '200':
-  *                  description: retorna el objeto insertado en la colección
+  *                  description: Retorna el objeto insertado en la colección
   *              '422':
   *                  description: Error de validación
   *          requestBody:

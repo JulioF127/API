@@ -6,7 +6,7 @@ const {matchedData} = require("express-validator")
 const PUBLIC_URL = process.env.PUBLIC_URL;
 const MEDIA_PATH =`${__dirname}/../storage`;
 /**
- * Obtener lista de la base de datos
+ * Listar
  */
 
 const getItems = async (req, res) => {
@@ -19,7 +19,7 @@ const getItems = async (req, res) => {
 };
 
 /**
- * obtener un detalle 
+ * Obtener detalle
  * @param {*} req 
  * @param {*} res 
  */
@@ -38,7 +38,7 @@ const getItem = async (req, res) => {
 
 
 /**
- * insertar un registro
+ * Insertar
  * @param {*} req 
  * @param {*} res 
  */
@@ -58,7 +58,7 @@ const createItem = async (req, res) => {
 
 
 /**
- * eliminar un registro
+ * Eliminar
  * @param {*} req 
  * @param {*} res 
  */
