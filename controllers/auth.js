@@ -5,12 +5,11 @@ const { usersModel } = require("../models")
 const { handleHttpError } = require("../utils/handleError");
 
 
-/* este controlador es el encargado de registrar un usuario*/
+/** este controlador es el encargado de registrar un usuario*/
 const registerCtrl = async (req, res) => {
   try{
     req = matchedData(req);
     const password = await encrypt(req.password);
-    console.log(password);
     const body = { ...req, password };
     const dataUser = await usersModel.create(body);
     dataUser.set("password", undefined, { strict: false });
@@ -27,7 +26,8 @@ const registerCtrl = async (req, res) => {
   }
 };
 
-/* Este controlador es el encargado de logear a una persona
+/**
+ * Este controlador es el encargado de logear a una persona
  * @param {*} req 
  * @param {*} res 
  */
