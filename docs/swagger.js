@@ -15,7 +15,7 @@ const swaggerDefinition = {
 
         },
         {
-            url: "https://susherokuapi.herokuapp.com/"
+            url: "https://susherokuapi.herokuapp.com/api"
             
         },
     ],
