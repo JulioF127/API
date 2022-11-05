@@ -1,6 +1,6 @@
 const request = require("supertest");
 const app = require("../app");
-const { tokenSign } = require("../utils/handleJWT");
+const { tokenSign } = require("../utils/handleJwt");
 const { usersModel, storageModel, tracksModel } = require("../models");
 const {testAuthRegisterAdmin,testDataTrack,testStorageRegister} = require("./helper/helperData");
 let STORAGE_ID = "";

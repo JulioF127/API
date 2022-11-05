@@ -1,5 +1,5 @@
 const { handleHttpError } = require("../utils/handleError");
-const { verifyToken } = require("../utils/handleJWT")
+const { verifyToken } = require("../utils/handleJwt")
 const { usersModel } = require("../models")
 const getProperties = require("../utils/handlePropertiesEngine")
 const propertiesKey = getProperties()

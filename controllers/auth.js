@@ -1,6 +1,6 @@
 const { matchedData } = require("express-validator")
 const { encrypt, compare  } = require("../utils/handlePassword")
-const { tokenSign } = require("../utils/handleJWT")
+const { tokenSign } = require("../utils/handleJwt")
 const { usersModel } = require("../models")
 const { handleHttpError } = require("../utils/handleError");
 

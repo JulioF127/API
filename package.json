@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app",
+    "start": "node ./app.js",
     "dev": "nodemon ./app.js",
     "test": "cross-env NODE_ENV=test jest --silent --coverage --runInBand",
     "test:watch": "cross-env NODE_ENV=test jest --coverage --watch --silent --runInBand"
